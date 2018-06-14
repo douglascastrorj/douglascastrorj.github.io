@@ -98,6 +98,7 @@ var alien = {
 
     aliens: null,
     n_aliens: 6,
+    speed: 5,
 
     init: function(){
         this.aliens = [];
@@ -134,10 +135,18 @@ var alien = {
                 alien.sprite.width, alien.sprite.height,
                 alien.x, alien.y, alien.sprite.width, alien.sprite.height
             );
+
+            //mover
+            alien.x += this.speed;
+
+            if(alien.x > canvas.width - 10 || alien.x < 10)
+                this.speed *= -1;
+
         }
 
+        console.log("canvas w", canvas.width)
 
-        
+
     }
 }
 
